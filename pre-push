@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Ejecutando pruebas unitarias antes del push..."
+
+# Ejecutar pruebas unitarias
+python -m unittest discover -v
+TEST_RESULT=$?
+
+# Verificar el resultado de las pruebas
+if [ $TEST_RESULT -ne 0 ]; then
+    echo "Las pruebas unitarias fallaron. Deteniendo el push."
+    exit 1
+fi
+
+echo "Todas las pruebas pasaron. Procediendo con el push."
+exit 0
