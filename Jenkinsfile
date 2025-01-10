@@ -4,11 +4,7 @@ pipeline {
     stages {
         stage('Preparation') {
             steps {
-                script{
-                    echo 'Hello Config'
-                    python -m pip install --upgrade pip
-                    
-                }
+              echo 'Hello Preparation'               
             }
         }
         
