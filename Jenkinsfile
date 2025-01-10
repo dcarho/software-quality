@@ -5,6 +5,7 @@ pipeline {
         stage('Preparation') {
             steps {
               echo 'Hello Preparation'
+              bat "python -m pip install --upgrade pip"
             }
         }
         
