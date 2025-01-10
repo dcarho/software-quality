@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Mensaje antes de un Merge...Validar que no sea la rama main"
+
+exit 0

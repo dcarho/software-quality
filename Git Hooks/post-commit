@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Mensaje después de un commit ...Validar que no haya sido en la rama main"
+
+exit 0

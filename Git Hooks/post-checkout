@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Mensaje después de checkout...Validar que no sea la rama main"
+
+exit 0

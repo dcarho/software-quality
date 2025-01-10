@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Mensaje antes de un push...Ejecutar la validacion de tests"
+
+exit 0

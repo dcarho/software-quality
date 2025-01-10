@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Mensaje antes de un commit ...Validar la nomenclatura de los archivos"
+
+exit 0
