@@ -9,8 +9,8 @@ python -m unittest "$TEST_DIR"
 
 # Verifica si los tests pasaron
 if [ $? -ne 0 ]; then
-    echo "❌ Tests fallaron. Cancela el commit."
+    echo "❌ Tests fallaron. Cancela el push."
     exit 1
 else
-    echo "✅ Todos los tests pasaron. Procediendo con el commit."
+    echo "✅ Todos los tests pasaron. Procediendo con el push..."
 fi
