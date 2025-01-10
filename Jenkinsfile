@@ -8,6 +8,7 @@ pipeline {
                     echo 'Hello Config'
                     python -m pip install --upgrade pip
                     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+                }
             }
         }
         
@@ -17,7 +18,9 @@ pipeline {
 
             }
         }
+        
     }
+
     post {
          always {  
              echo 'This will always run'  
