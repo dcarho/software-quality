@@ -5,17 +5,15 @@ pipeline {
         stage('Preparation') {
             steps {
                 echo 'Hello Config'
-                C:\Users\prueba\AppData\Local\Programs\Python\Python313\python -m pip install --upgrade pip
-                if [ -f requirements.txt ]; then C:\Users\prueba\AppData\Local\Programs\Python\Python313\Scripts pip install -r requirements.txt; fi
+                C:\Users\prueba\AppData\Local\Programs\Python\Python313\python.exe -m pip install --upgrade pip
+                if [ -f requirements.txt ]; then C:\Users\prueba\AppData\Local\Programs\Python\Python313\Scripts\pip.exe install -r requirements.txt; fi
             }
         }
         
         stage('Test') {
             steps {
-            C:\Users\prueba\AppData\Local\Programs\Python\Python313\python -m unittest Selenium+Unit_test+Hooks.pruebas.test_flows
-                
-                
-                
+                C:\Users\prueba\AppData\Local\Programs\Python\Python313\python -m unittest Selenium+Unit_test+Hooks.pruebas.test_flows
+
             }
         }
     }
