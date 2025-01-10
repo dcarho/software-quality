@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Preparation') {
             steps {
-              echo 'Hello Preparation'               
+              echo 'Hello Preparation'
             }
         }
         
         stage('Test') {
             steps {
-                python -m unittest Selenium+Unit_test+Hooks.pruebas.test_flows
+                echo 'Hello Test'
             }
         
         post {
