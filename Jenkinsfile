@@ -15,13 +15,8 @@ pipeline {
         stage('Test') {
             steps {
                 python -m unittest Selenium+Unit_test+Hooks.pruebas.test_flows
-
             }
-        }
-        
-    }
-
-    post {
+            post {
          always {  
              echo 'This will always run'  
          }  
@@ -40,4 +35,7 @@ pipeline {
          } 
 
     }
+        }
+        
+    }    
 }
