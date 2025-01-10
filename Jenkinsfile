@@ -5,14 +5,14 @@ pipeline {
         stage('Preparation') {
             steps {
                 echo 'Hello Config'
-                C:\Users\prueba\AppData\Local\Programs\Python\Python313\python.exe -m pip install --upgrade pip
-                if [ -f requirements.txt ]; then C:\Users\prueba\AppData\Local\Programs\Python\Python313\Scripts\pip.exe install -r requirements.txt; fi
+                python -m pip install --upgrade pip
+                if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
             }
         }
         
         stage('Test') {
             steps {
-                C:\Users\prueba\AppData\Local\Programs\Python\Python313\python -m unittest Selenium+Unit_test+Hooks.pruebas.test_flows
+                python.exe -m unittest Selenium+Unit_test+Hooks.pruebas.test_flows
 
             }
         }
@@ -25,7 +25,7 @@ pipeline {
              echo 'This will run only if successful'  
          }  
          failure {  
-             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "foo@foomail.com";  
+             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "dcarho@hotmail.com";  
          }  
          unstable {  
              echo 'This will run only if the run was marked as unstable'  
