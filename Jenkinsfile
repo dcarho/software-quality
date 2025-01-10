@@ -12,7 +12,7 @@ pipeline {
         
         stage('Test') {
             steps {
-                python.exe -m unittest Selenium+Unit_test+Hooks.pruebas.test_flows
+                python -m unittest Selenium+Unit_test+Hooks.pruebas.test_flows
 
             }
         }
