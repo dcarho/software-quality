@@ -12,7 +12,7 @@ pipeline {
         
         stage('Test') {
             steps {
-            C:\Users\prueba\AppData\Local\Programs\Python\Python313\python python -m unittest Selenium+Unit_test+Hooks.pruebas.test_flows
+            C:\Users\prueba\AppData\Local\Programs\Python\Python313\python -m unittest Selenium+Unit_test+Hooks.pruebas.test_flows
                 
                 
                 
