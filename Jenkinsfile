@@ -4,9 +4,10 @@ pipeline {
     stages {
         stage('Preparation') {
             steps {
-                echo 'Hello Config'
-                python -m pip install --upgrade pip
-                if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+                script{
+                    echo 'Hello Config'
+                    python -m pip install --upgrade pip
+                    if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
             }
         }
         
