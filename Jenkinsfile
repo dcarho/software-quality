@@ -22,17 +22,15 @@ pipeline {
          success {
             
                 echo 'This will run only if successful'
-                githubNotify status: 'SUCCESS', description: 'This is an example'
-            
+                githubNotify  status: 'SUCCESS', account: 'dcarho', credentialsId: 'a47911ea-107e-40a7-a6d3-e756b06fa557',  repo: 'software-quality', context: 'Activity3 Test', description: 'This is an example'            
              
          }  
          failure {
             
                 echo 'This will run only if fails'
-                githubNotify status: 'FAILURE', description: 'This is an example'
+                githubNotify status: 'FAILURE', account: 'dcarho', credentialsId: 'a47911ea-107e-40a7-a6d3-e756b06fa557',  repo: 'software-quality', context: 'Activity3 Test', description: 'This is an example'
                 mail bcc: '', to: "dcarho@hotmail.com", body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}"
-            
-             
+                         
          }  
          unstable {  
              echo 'This will run only if the run was marked as unstable'  
