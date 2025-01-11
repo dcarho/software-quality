@@ -27,7 +27,7 @@ pipeline {
          success {
             
                 echo 'This will run only if successful'
-                githubNotify status: 'SUCCESS', account: 'dcarho', credentialsId: 'my-credentials',  repo: 'software-quality', sha: '${GIT_COMMIT}' ,context: 'Activity3 Test', description: 'This is an example'            
+                setBuildStatus("Build complete", "SUCCESS")
              
          }  
          failure {
@@ -49,5 +49,15 @@ pipeline {
         }
         
     }
+
+    void setBuildStatus(String message, String state) {
+        step([
+            $class: "GitHubCommitStatusSetter",
+            reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/my-org/my-repo"],
+            contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
+            errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
+            statusResultSource: [ $class: "ConditionalStatusResultSource", results: [[$class: "AnyBuildResult", message: message, state: state]] ]
+        ]);
+}
     
 }
