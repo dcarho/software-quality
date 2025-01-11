@@ -2,7 +2,7 @@ def setBuildStatus(String message, String state) {
         step([
             $class: "GitHubCommitStatusSetter",
             reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/dcarho/software-quality"],
-            contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
+            contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "Activity3-pipeline/build-status"],
             errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
             statusResultSource: [ $class: "ConditionalStatusResultSource", results: [[$class: "AnyBuildResult", message: message, state: state]] ]
         ]);
@@ -29,6 +29,7 @@ pipeline {
 
         steps {
             echo 'Hello Test'
+            bat 'exit 1'
         }
         
         post {
@@ -47,8 +48,8 @@ pipeline {
             failure {
             
                 echo 'This will run only if fails'
-                githubNotify status: 'FAILURE', account: 'dcarho', credentialsId: 'my-credentials',  repo: 'software-quality', context: 'Activity3 Test', description: 'This is an example'
-                mail bcc: '', to: "dcarho@hotmail.com", body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}"
+                setBuildStatus("Build complete", "FAILURE")
+                mail bcc: '', to: "dcarho@hotmail.com", body: "<b>Los test fallaron.</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}"
                          
             } 
 
