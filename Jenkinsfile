@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+     environment {
+        
+        GIT_COMMIT="${bat(returnStdout: true, script: 'git rev-parse HEAD')}"
+    }
+
     stages {
         stage('Preparation') {
             steps {
@@ -22,7 +27,7 @@ pipeline {
          success {
             
                 echo 'This will run only if successful'
-                githubNotify status: 'SUCCESS', account: 'dcarho', credentialsId: 'my-credentials',  repo: 'software-quality', context: 'Activity3 Test', description: 'This is an example'            
+                githubNotify status: 'SUCCESS', account: 'dcarho', credentialsId: 'my-credentials',  repo: 'software-quality', sha: '${GIT_COMMIT}' ,context: 'Activity3 Test', description: 'This is an example'            
              
          }  
          failure {
@@ -43,5 +48,6 @@ pipeline {
     }
         }
         
-    }    
+    }
+    
 }
