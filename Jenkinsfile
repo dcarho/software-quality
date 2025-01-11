@@ -22,13 +22,13 @@ pipeline {
          success {
             
                 echo 'This will run only if successful'
-                githubNotify status: 'SUCCESS', account: 'dcarho', credentialsId: 'github-credentials',  repo: 'software-quality', context: 'Activity3 Test', description: 'This is an example'            
+                githubNotify status: 'SUCCESS', account: 'dcarho', credentialsId: 'my-credentials',  repo: 'software-quality', context: 'Activity3 Test', description: 'This is an example'            
              
          }  
          failure {
             
                 echo 'This will run only if fails'
-                githubNotify status: 'FAILURE', account: 'dcarho', credentialsId: 'github-credentials',  repo: 'software-quality', context: 'Activity3 Test', description: 'This is an example'
+                githubNotify status: 'FAILURE', account: 'dcarho', credentialsId: 'my-credentials',  repo: 'software-quality', context: 'Activity3 Test', description: 'This is an example'
                 mail bcc: '', to: "dcarho@hotmail.com", body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}"
                          
          }  
