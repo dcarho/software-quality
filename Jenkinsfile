@@ -25,9 +25,12 @@ pipeline {
              echo 'This will always run'  
          }  
          success {
-            
+                
                 echo 'This will run only if successful'
-                setBuildStatus("Build complete", "SUCCESS")
+                steps{
+                    setBuildStatus("Build complete", "SUCCESS")
+                }
+                
              
          }  
          failure {
@@ -50,7 +53,7 @@ pipeline {
         
     }
 
-    void setBuildStatus(String message, String state) {
+    def setBuildStatus(String message, String state) {
         step([
             $class: "GitHubCommitStatusSetter",
             reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/my-org/my-repo"],
