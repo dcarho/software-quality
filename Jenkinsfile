@@ -5,8 +5,7 @@ pipeline {
         stage('Preparation') {
             steps {
               echo 'Hello Preparation'
-              bat 'C:/Users/prueba/AppData/Local/Programs/Python/Python313/python.exe -m pip install --upgrade pip'
-              bat 'dir'
+              bat 'C:/Users/prueba/AppData/Local/Programs/Python/Python313/python.exe -m pip install --upgrade pip'              
               bat 'if exist requirements.txt C:/Users/prueba/AppData/Local/Programs/Python/Python313/Scripts/pip.exe install -r requirements.txt'
             }
         }
