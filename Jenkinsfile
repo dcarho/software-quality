@@ -7,7 +7,7 @@ pipeline {
               echo 'Hello Preparation'
               bat 'C:/Users/prueba/AppData/Local/Programs/Python/Python313/python.exe -m pip install --upgrade pip'
               bat 'dir'
-              bat 'if ./requirements.txt exist C:/Users/prueba/AppData/Local/Programs/Python/Python313/Scripts/pip.exe install -r requirements.txt'
+              bat 'if exist requirements.txt C:/Users/prueba/AppData/Local/Programs/Python/Python313/Scripts/pip.exe install -r requirements.txt'
             }
         }
         
