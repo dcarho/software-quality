@@ -49,7 +49,7 @@ pipeline {
             
                 echo 'This will run only if fails'
                 setBuildStatus("Build complete", "FAILURE")
-                mail to: "dcarho@outlook.com", body: "<b>Los test fallaron.</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", charset: 'UTF-8 ', mimeType: 'text/html', subject: "ERROR CI: Project name -> ${env.JOB_NAME}"
+                mail to: "dcarho@outlook.com", body: "<b>Los test fallaron.</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", charset: 'UTF-8', mimeType: 'text/html', subject: "ERROR CI: Project name -> ${env.JOB_NAME}"
                          
             } 
 
