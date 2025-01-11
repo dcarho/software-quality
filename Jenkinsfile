@@ -31,7 +31,7 @@ pipeline {
             
                 echo 'This will run only if fails'
                 githubNotify status: 'FAILURE', description: 'This is an example'
-                mail bcc: '', , to: "dcarho@hotmail.com", body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}"
+                mail bcc: '', to: "dcarho@hotmail.com", body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}"
             
              
          }  
