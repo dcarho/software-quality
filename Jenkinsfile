@@ -29,7 +29,7 @@ pipeline {
 
         steps {
             echo 'Hello Test'
-            bat 'C:/Users/prueba/AppData/Local/Programs/Python/Python313/python.exe -m unittest Selenium+Unit_test+Hooks.pruebas.test_flows'
+            bat 'exit 1'
         }
         
         post {
