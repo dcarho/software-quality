@@ -40,9 +40,8 @@ pipeline {
             success {
                 
                 echo 'This will run only if successful'
-                steps{
-                    setBuildStatus("Build complete", "SUCCESS")
-                }
+                setBuildStatus("Build complete", "SUCCESS")
+                
             } 
 
             failure {
